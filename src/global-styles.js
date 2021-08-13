@@ -1,5 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
+// eslint-disable-next-line import/prefer-default-export
 export const GlobalStyles = createGlobalStyle`
   html, body {
     font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif, Arial, Helvetica, sans-serif;

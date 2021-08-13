@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'; 
+import styled from 'styled-components/macro';
 // macro extension will give us the name of the components in the rendered HTML class (dev tools)
 
 export const Item = styled.div`
@@ -59,5 +59,10 @@ export const Image = styled.img`
 `;
 
 export const Container = styled.div`
-
+  @media (max-width: 1000px) {
+    // referencing previously declared styled-component to grab only the last one
+    ${Item}:last-of-type h2 {
+      margin-bottom: 50px;
+    }
+  }
 `;
