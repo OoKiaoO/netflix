@@ -6,6 +6,8 @@ import { GlobalStyles } from './global-styles';
 import 'normalize.css';
 // Database seed
 import { firebase } from './lib/firebase.prod';
+// Context
+import { FirebaseContext } from './context/firebase';
 
 ReactDOM.render(
   <>
