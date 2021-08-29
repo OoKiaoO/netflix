@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+// Routing to different pages on an action result (Ex. signin/signup promise response)
+import { useHistory } from 'react-router-dom';
+// Context
+import { FirebaseContext } from '../context/firebase';
 // Containers
 import { FooterContainer } from '../containers/footer';
 import { HeaderContainer } from '../containers/header';
 // Components
 import { Form } from '../components';
+// Routes
+import * as ROUTES from '../constants/routes';
 
 function Signin() {
+  const history = useHistory();
+  const { firebase } = useContext(FirebaseContext);
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -16,6 +24,19 @@ function Signin() {
   const handleSignin = (event) => {
     event.preventDefault();
     // firebase magic here~
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(emailAddress, password)
+      .then(() => {
+        // if signin OK push to browse page
+        history.push(ROUTES.BROWSE);
+      })
+      .catch((error) => {
+        // in case of error reste input fields
+        setEmailAddress('');
+        setPassword('');
+        setError(error.message); // message return from Firebase
+      });
   };
 
   return (
