@@ -27,6 +27,27 @@ function Signup() {
     event.preventDefault();
 
     // firebase magic here~
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(emailAddress, password)
+      .then((result) =>
+        result.user
+          .updateProfile({
+            displayName: firstName,
+            photoURL: Math.floor(Math.random() * 5) + 1,
+          })
+          .then(() => {
+            // in case of no errors we redirect to browse page
+            history.push(ROUTES.BROWSE);
+          })
+      )
+      .catch((error) => {
+        // if case of error we clear all input fields
+        setFirstName('');
+        setEmailAddress('');
+        setPassword('');
+        setError(error.message);
+      });
   };
 
   return (
