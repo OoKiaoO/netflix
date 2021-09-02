@@ -7,7 +7,7 @@ import { Home, Browse, Signin, Signup } from './pages';
 // Helpers
 import { IsUserRedirect, ProtectedRoute } from './helpers/routes';
 // Custom Hooks
-import { useAuthListener } from './hooks/use-auth-listener';
+import { useAuthListener } from './hooks';
 
 function App() {
   const { user } = useAuthListener();
