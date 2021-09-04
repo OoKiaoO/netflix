@@ -7,6 +7,7 @@ import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
 
 export default function BrowseContainer({ slides }) {
+  const [searchTerm, setSearchTerm] = useState('');
   const [profile, setProfile] = useState({}); // setting as empty obj as we are expecting to pass in the user
   const [loading, setLoading] = useState(true);
   const { firebase } = useContext(FirebaseContext);
@@ -30,6 +31,7 @@ export default function BrowseContainer({ slides }) {
             <Header.TextLink>Films</Header.TextLink>
           </Header.Group>
           <Header.Group>
+            <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <Header.Profile>
               <Header.Picture src={user.photoURL} />
               <Header.Dropdown>
@@ -38,7 +40,7 @@ export default function BrowseContainer({ slides }) {
                   <Header.TextLink>{user.displayName}</Header.TextLink>
                 </Header.Group>
                 <Header.Group>
-                  <Header.TextLink onClick={firebase.auth().signOut}>Sign Out</Header.TextLink>
+                  <Header.TextLink onClick={() => firebase.auth().signOut()}>Sign Out</Header.TextLink>
                 </Header.Group>
               </Header.Dropdown>
             </Header.Profile>
@@ -46,7 +48,12 @@ export default function BrowseContainer({ slides }) {
         </Header.Frame>
         <Header.Feature>
           <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
-          <Header.Text>Hello</Header.Text>
+          <Header.Text>
+            Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham
+            City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
+            futile attempt to feel like he's part of the world around him.
+          </Header.Text>
+          <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
     </>
