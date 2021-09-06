@@ -1,5 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React, { useContext, useState, useEffect } from 'react';
+// Libraries
+import Fuse from 'fuse.js';
 // Containers
 import SelectProfileContainer from './profile';
 import { FooterContainer } from './footer';
@@ -30,6 +32,18 @@ export default function BrowseContainer({ slides }) {
   useEffect(() => {
     setSlideRows(slides[category]);
   }, [slides, category]);
+
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] });
+    // we pass into fuse all the areas relevant for the search
+    const results = fuse.search(searchTerm).map(({ item }) => item); // we return the searched item
+
+    if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+      setSlideRows(results); // results will be displayed in teh slides
+    } else {
+      setSlideRows(slides[category]); // if no results the slides are reset
+    }
+  }, [searchTerm]);
 
   return profile.displayName ? (
     <>
