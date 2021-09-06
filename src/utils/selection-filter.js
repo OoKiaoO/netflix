@@ -39,8 +39,8 @@ export default function selectionFilter({ series, films }) {
         data: films.filter((item) => item.genre === 'children'),
       },
       {
-        title: 'Suspence',
-        data: films.filter((item) => item.genre === 'suspence'),
+        title: 'Suspense',
+        data: films.filter((item) => item.genre === 'suspense'),
       },
       {
         title: 'Romance',

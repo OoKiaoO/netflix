@@ -11,6 +11,7 @@ function Browse() {
   const { films } = useContent('films');
   const slides = selectionFilter({ series, films });
 
+  console.log(films);
   return <BrowseContainer slides={slides} />;
 }
 

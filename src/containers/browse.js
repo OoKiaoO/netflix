@@ -1,8 +1,13 @@
 /* eslint-disable no-nested-ternary */
 import React, { useContext, useState, useEffect } from 'react';
+// Containers
 import SelectProfileContainer from './profile';
+import { FooterContainer } from './footer';
+// Context
 import { FirebaseContext } from '../context/firebase';
-import { Card, Loading, Header } from '../components';
+// Components
+import { Card, Loading, Header, Player } from '../components';
+// Constants
 import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
 
@@ -84,14 +89,15 @@ export default function BrowseContainer({ slides }) {
               ))}
             </Card.Entities>
             <Card.Feature category={category}>
-              {/* <Player>
+              <Player>
                 <Player.Button />
                 <Player.Video src="/videos/bunny.mp4" />
-              </Player> */}
+              </Player>
             </Card.Feature>
           </Card>
         ))}
       </Card.Group>
+      <FooterContainer />
     </>
   ) : (
     <SelectProfileContainer user={user} setProfile={setProfile} />
