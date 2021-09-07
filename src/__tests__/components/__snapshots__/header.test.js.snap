@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders the full <Header /> with a background 1`] = `
+<div
+  class="header__Background-sc-djltcn-0 dVNuQV"
+  data-testid="header-bg"
+  src="joker1"
+>
+  <div
+    class="header__Container-sc-djltcn-1 kDOSzb"
+  >
+    <div
+      class="header__Group-sc-djltcn-2 cArycV"
+    >
+      <div
+        class="header__Search-sc-djltcn-12 OYOFe"
+      >
+        <button
+          class="header__SearchIcon-sc-djltcn-13 cuAemp"
+          data-testid="search-click"
+        >
+          <img
+            alt="Search"
+            src="/images/icons/search.png"
+          />
+        </button>
+        <input
+          class="header__SearchInput-sc-djltcn-14 cxbGcD"
+          data-testid="search-input"
+          placeholder="Search films and series"
+          value="Joker"
+        />
+      </div>
+      <div
+        class="header__Profile-sc-djltcn-11 BXyWw"
+      >
+        <button
+          class="header__Picture-sc-djltcn-9 gwGYQL"
+          src="/images/users//images/user/4png.png"
+        />
+        <div
+          class="header__Dropdown-sc-djltcn-10 hcSHOv"
+        >
+          <div
+            class="header__Group-sc-djltcn-2 cArycV"
+          >
+            <button
+              class="header__Picture-sc-djltcn-9 gwGYQL"
+              src="/images/users//images/user/4png.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="header__Container-sc-djltcn-1 header__Feature-sc-djltcn-3 kDOSzb iQoFxS"
+  >
+    <h2
+      class="header__FeatureCallOut-sc-djltcn-7 bfiJzi"
+    >
+      Watch Joker Now
+    </h2>
+    <p
+      class="header__Text-sc-djltcn-6 duaMdk"
+    >
+      Forever alone in a crowd..
+    </p>
+    <button
+      class="header__PlayButton-sc-djltcn-15 izBoTE"
+    >
+      Play
+    </button>
+  </div>
+</div>
+`;
