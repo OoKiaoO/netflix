@@ -24,7 +24,7 @@ function Signin() {
   const handleSignin = (event) => {
     event.preventDefault();
     // firebase magic here~
-    firebase
+    return firebase
       .auth()
       .signInWithEmailAndPassword(emailAddress, password)
       .then(() => {
@@ -32,7 +32,7 @@ function Signin() {
         history.push(ROUTES.BROWSE);
       })
       .catch((error) => {
-        // in case of error reste input fields
+        // in case of error reset input fields
         setEmailAddress('');
         setPassword('');
         setError(error.message); // message return from Firebase
@@ -44,7 +44,7 @@ function Signin() {
       <HeaderContainer>
         <Form>
           <Form.Title>Sign In</Form.Title>
-          {error && <Form.Error>{error}</Form.Error>}
+          {error && <Form.Error data-testid="error">{error}</Form.Error>}
 
           <Form.Base onSubmit={handleSignin} method="POST">
             <Form.Input
@@ -59,7 +59,7 @@ function Signin() {
               value={password}
               onChange={({ target }) => setPassword(target.value)}
             />
-            <Form.Submit disabled={isInvalid} type="submit">
+            <Form.Submit data-testid="sign-in" disabled={isInvalid} type="submit">
               Sign In
             </Form.Submit>
             <Form.Text>

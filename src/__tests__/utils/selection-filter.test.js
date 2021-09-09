@@ -46,7 +46,7 @@ test('selectionFilter with legitimate data', () => {
 });
 
 test('selectionFilter with no data', () => {
-  const slides = selectionFilter();
+  const slides = selectionFilter({});
   expect(slides.series[1].title).toBe('Comedies');
   expect(slides.films[1].title).toBe('Thriller');
   expect(slides.series[0].data).toBe(undefined);
