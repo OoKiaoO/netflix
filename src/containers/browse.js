@@ -43,7 +43,7 @@ export default function BrowseContainer({ slides }) {
     } else {
       setSlideRows(slides[category]); // if no results the slides are reset
     }
-  }, [searchTerm]);
+  }, [category, searchTerm, slideRows, slides]);
 
   return profile.displayName ? (
     <>
