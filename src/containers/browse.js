@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-nested-ternary */
 import React, { useContext, useState, useEffect } from 'react';
 // Libraries
@@ -39,11 +40,11 @@ export default function BrowseContainer({ slides }) {
     const results = fuse.search(searchTerm).map(({ item }) => item); // we return the searched item
 
     if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
-      setSlideRows(results); // results will be displayed in teh slides
+      setSlideRows(results); // results will be displayed in the slides
     } else {
       setSlideRows(slides[category]); // if no results the slides are reset
     }
-  }, [category, searchTerm, slideRows, slides]);
+  }, [category, searchTerm]);
 
   return profile.displayName ? (
     <>
