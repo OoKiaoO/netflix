@@ -171,6 +171,13 @@ export const Item = styled.div`
       z-index: 100;
     }
 
+    &:hover ${SubTitle} {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     &:first-of-type {
       @media (max-width: 1000px) {
         margin-left: 30px;
