@@ -32,15 +32,15 @@ describe('The home page Header component', () => {
     cy.get(homeHeader)
       .find('.opt-form__Text-sc-8oudnm-3')
       .should('have.text', 'Ready to watch? Enter your email to create or restart your membership');
-  })
+  });
 
   it('has an Opt in form input', () => {
     cy.get(homeHeader).find('input').should('have.attr', 'placeholder', 'Email Address');
     cy.get(homeHeader).find('input').type('Hello').should('have.value', 'Hello');
-  })
+  });
 
   it("has a 'Try it now' button", () => {
     cy.get(homeHeader).find('button').should('have.text', 'Try it Now');
     cy.get(homeHeader).find('button').should('have.css', 'text-transform', 'uppercase');
-  })
+  });
 });
