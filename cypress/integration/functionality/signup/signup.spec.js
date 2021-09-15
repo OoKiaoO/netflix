@@ -1,17 +1,19 @@
 /* eslint-disable no-undef */
 /// <reference types="cypress" />
-const authUser = require('../../../fixtures/signup-user.json');
+const signupUser = require('../../../fixtures/signup-user.json');
 
-describe('The signin page', () => {
-  it('should sign in with email and password', () => {
+describe('The signup page', () => {
+  it('should sign up a new user', () => {
     // destructuring the data from the JSON file for easier access
-    const { email, password } = authUser;
+    const { name, email, password } = signupUser;
 
-    cy.visit('http://localhost:3000/signin');
+    cy.logout();
+    cy.visit('http://localhost:3000/signup');
+    cy.get('[placeholder="First Name"]').type(name);
     cy.get('[placeholder="Email Address"]').type(email);
     cy.get('[placeholder="Password"]').type(password);
-    cy.get('[data-testid=sign-in]').click();
+    cy.get('[data-testid=sign-up]').click();
     cy.url().should('eq', 'http://localhost:3000/browse');
-    // add logout
+    cy.logout();
   });
 });

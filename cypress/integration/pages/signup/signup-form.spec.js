@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /// <reference types="cypress" />
 
-describe('the Sign in page', () => {
+describe('the Sign up page', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/signup');
   });
@@ -28,10 +28,10 @@ describe('the Sign in page', () => {
 
   it('correctly displays an active/inactive submit button', () => {
     cy.get('[data-testid=sign-up]').should('have.attr', 'disabled');
-    cy.get('[data-testid=sign-up]').should('have.css', 'opacity');
+    cy.get('[data-testid=sign-up]').should('have.css', 'opacity', 0.5);
     cy.get('[placeholder="Email Address"]').type('Email address');
     cy.get('[placeholder="Password"]').type('Password');
-    cy.get('[data-testid=sign-up]').should('not.have.attr', 'disabled', 0.5);
+    cy.get('[data-testid=sign-up]').should('not.have.attr', 'disabled');
     cy.get('[data-testid=sign-up]').should('not.have.css', 'opacity', 0);
   });
 });
